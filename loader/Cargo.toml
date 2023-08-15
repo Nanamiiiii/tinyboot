@@ -1,0 +1,24 @@
+[package]
+name = "tinyboot-loader"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "fwloader"
+path = "src/fwloader.rs"
+
+[[bin]]
+name = "osloader"
+path = "src/osloader.rs"
+
+[dependencies]
+
+[features]
+arch-riscv64 = []
+board-virt-riscv64 = ["arch-riscv64"]
+
+[target.'cfg(feature = "arch-riscv64")'.dependency]
+
+[target.'cfg(feature = "board-virt-riscv64")'.dependency]
