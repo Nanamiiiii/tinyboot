@@ -1,4 +1,0 @@
-[target.'cfg(feature = "board-virt-riscv64")'.dependency]
-rustflags = [
-    "-C", "link-arg=-Tloader/lds/virt-riscv.lds"
-]

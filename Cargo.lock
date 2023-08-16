@@ -15,5 +15,5 @@ name = "tinyboot-board"
 version = "0.1.0"
 
 [[package]]
-name = "tinyboot-loader"
+name = "xtask"
 version = "0.1.0"
