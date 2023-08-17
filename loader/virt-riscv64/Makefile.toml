@@ -1,0 +1,36 @@
+[tasks.build]
+clear = true
+dependencies = ["build-fw-bin", "build-os-bin"]
+
+[tasks.build-fw-bin]
+dependencies = ["build-fw"]
+command = "rust-objcopy"
+args = [
+    "--strip-all",
+    "-O", "binary",
+    "./target/riscv64imac-unknown-none-elf/release/tinyboot-fw",
+    "tinyboot-fw.bin"
+]
+
+[tasks.build-os-bin]
+dependencies = ["build-os"]
+command = "rust-objcopy"
+args = [
+    "--strip-all",
+    "-O", "binary",
+    "./target/riscv64imac-unknown-none-elf/release/tinyboot",
+    "tinyboot.bin"
+]
+
+[tasks.build-fw]
+cwd = "./fw"
+command = "cargo"
+args = ["build", "--release"]
+
+[tasks.build-os]
+cwd = "./os"
+command = "cargo"
+args = ["build", "--release"]
+
+[config]
+default_to_workspace = false

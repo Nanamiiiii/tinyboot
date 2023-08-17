@@ -1,0 +1,7 @@
+[workspace]
+resolver = "2"
+members = ["fw", "os"]
+
+[profile.release]
+debug = true
+opt-level = "s"

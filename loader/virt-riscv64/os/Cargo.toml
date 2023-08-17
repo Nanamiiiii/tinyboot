@@ -1,5 +1,5 @@
 [package]
-name = "tinyboot-virt_riscv-os"
+name = "tinyboot-virt_riscv64-os"
 version = "0.1.0"
 edition = "2021"
 
@@ -8,6 +8,8 @@ edition = "2021"
 [[bin]]
 name = "tinyboot"
 path = "src/boot.rs"
+test = false
+bench = false
 
 [dependencies]
 panic-halt = "0.2.0"
