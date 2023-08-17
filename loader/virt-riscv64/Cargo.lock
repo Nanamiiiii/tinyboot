@@ -175,7 +175,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "tinyboot-virt_riscv-fw"
+name = "tinyboot-virt_riscv64-fw"
 version = "0.1.0"
 dependencies = [
  "panic-halt",
@@ -183,7 +183,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "tinyboot-virt_riscv-os"
+name = "tinyboot-virt_riscv64-os"
 version = "0.1.0"
 dependencies = [
  "panic-halt",

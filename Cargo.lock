@@ -13,7 +13,3 @@ version = "0.1.0"
 [[package]]
 name = "tinyboot-board"
 version = "0.1.0"
-
-[[package]]
-name = "xtask"
-version = "0.1.0"

@@ -1,0 +1,56 @@
+# Makefile.toml
+
+[tasks.build]
+clear = true
+env_files = [ "./.config.env" ]
+command = "cargo"
+args = ["make", "--cwd", "./loader/${TARGET_SYSTEM}", "--", "build"]
+
+[tasks.defconfig]
+script = '''
+target_name="default"
+if [ $# -gt 1 ]; then
+    echo "error: too many arguments. only pass target name."
+    echo "Usage:"
+    echo "  cargo make defconfig [TARGET_NAME]"
+    exit 1
+fi
+if [ $# -eq 1 ]; then
+    target_name=${1}
+fi 
+if [ ! -e "./configs/${target_name}.env" ]; then
+    echo "error: target ${target_name} does not exist"
+    exit 1
+fi
+if [ -e "./.config.env" ]; then
+    echo "moving old config..."
+    mv ./.config.env ./.config.env.old
+fi
+cp ./configs/${target_name}.env ./.config.env
+echo "target ${target_name} is configured"
+echo "configuration was saved into .config.env"
+'''
+
+[tasks.saveconfig]
+script = '''
+if [ $# -ne 1 ]; then
+    echo "error: invalid argument"
+    echo "Usage:"
+    echo "  cargo make saveconfig NEW_TARGET"
+    exit 1
+fi
+if [ ! -e "./.config.env" ]; then
+    echo "error: .config.env does not exist"
+    exit 1
+fi
+target_name=${1}
+if [ -e "./configs/${target_name}.env" ]; then
+    echo "error: target ${target_name} already exists"
+    exit 1
+fi
+cp ./.config.env ./configs/${target_name}.env
+echo "configuration was saved into config/${target_name}.env"
+'''
+
+[config]
+default_to_workspace = false

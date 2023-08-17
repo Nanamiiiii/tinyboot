@@ -4,5 +4,4 @@ members = [
     "libtinyboot",
     "arch",
     "board",
-    "xtask"
 ]
