@@ -1,5 +1,12 @@
 [package]
 name = "libtinyboot"
+authors = ["Nanamiiiii <nanami@myuu.dev>"]
+description = """
+Core library of tinyboot, tiny secure bootloader for embedded device
+"""
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/Nanamiiiii/tinyboot"
 version = "0.1.0"
 edition = "2021"
 
